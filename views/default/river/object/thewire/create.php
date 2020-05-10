@@ -6,6 +6,12 @@
 $item = $vars['item'];
 /* @var ElggRiverItem $item */
 
+$menu = elgg_view_menu('river', array(
+	'item' => $item,
+	'sort_by' => 'priority',
+	'class' => 'elgg-menu-hz',
+));
+
 $object = $item->getObjectEntity();
 $excerpt = strip_tags($object->description);
 $excerpt = thewire_filter($excerpt);
@@ -27,7 +33,7 @@ $object_link = elgg_view('output/url', array(
 
 $summary = elgg_echo("river:create:object:thewire", array($subject_link, $object_link));
 
-echo elgg_view('river/elements/layout', array(
+echo elgg_view('river/elements/super-river/super-layout', array(
 	'item' => $item,
 	'message' => $excerpt,
 	'summary' => $summary,
@@ -78,3 +84,12 @@ $cardPreview =
 ___HTML;
 
 echo $cardPreview;
+
+
+echo <<<RIVER
+$menu
+    </br>
+    
+RIVER;
+
+echo '</br>';

@@ -6,11 +6,17 @@
 $item = $vars['item'];
 /* @var ElggRiverItem $item */
 
+$menu = elgg_view_menu('river', array(
+	'item' => $item,
+	'sort_by' => 'priority',
+	'class' => 'elgg-menu-hz',
+));
+
 $object = $item->getObjectEntity();
 $excerpt = strip_tags($object->description);
 $excerpt = elgg_get_excerpt($excerpt);
 
-echo elgg_view('river/elements/layout', array(
+echo elgg_view('river/elements/super-river/super-layout', array(
 	'item' => $item,
 	'message' => $excerpt,
 ));
@@ -69,3 +75,18 @@ $fileTitle
 ___HTML;
 
 echo $cardPreview;
+
+
+$responses = elgg_view('river/elements/responses', $vars);
+if ($responses) {
+	$responses = "<div class=\"elgg-river-responses\">$responses</div>";
+}
+
+echo <<<RIVER
+$menu
+    </br></br>
+$responses
+    
+RIVER;
+
+echo '</br>';

@@ -12,11 +12,7 @@
 $item = $vars['item'];
 /* @var ElggRiverItem $item */
 
-$menu = elgg_view_menu('river', array(
-	'item' => $item,
-	'sort_by' => 'priority',
-	'class' => 'elgg-menu-hz',
-));
+
 
 // river item header
 $timestamp = elgg_view_friendly_time($item->getTimePosted());
@@ -66,9 +62,9 @@ if ($container instanceof ElggGroup && $container->guid != elgg_get_page_owner_g
 }
 
 echo <<<RIVER
-$menu
+
 <div class="elgg-river-summary">$summary $group_string <span class="elgg-river-timestamp">$timestamp</span></div>
 
 $attachments
-$responses
+
 RIVER;
