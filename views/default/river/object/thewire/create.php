@@ -9,9 +9,11 @@ if (!$item instanceof ElggRiverItem) {
 }
 
 $object = $item->getObjectEntity();
+//dd($object->description);
 $vars['message'] = thewire_filter((string) $object->description);
 
 $subject = $item->getSubjectEntity();
+dd($subject);
 $subject_link = elgg_view_entity_url($subject, ['class' => 'elgg-river-subject']);
 
 $object_link = elgg_view('output/url', [
