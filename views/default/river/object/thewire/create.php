@@ -8,12 +8,19 @@ if (!$item instanceof ElggRiverItem) {
 	return;
 }
 
+$twig = super_river_twig();
+
 $object = $item->getObjectEntity();
 //dd($object->description);
 $vars['message'] = thewire_filter((string) $object->description);
-
+$entity = get_entity($object->guid);
 $subject = $item->getSubjectEntity();
-dd($subject);
+
+$data = [
+	'entity' => $entity,
+	'username' => $subject->username,
+];
+//dd($subject);
 $subject_link = elgg_view_entity_url($subject, ['class' => 'elgg-river-subject']);
 
 $object_link = elgg_view('output/url', [
@@ -27,4 +34,11 @@ $object_link = elgg_view('output/url', [
 
 $vars['summary'] = elgg_echo('river:object:thewire:create', [$subject_link, $object_link]);
 
-echo elgg_view('river/elements/layout', $vars);
+echo $twig->render(
+	'river/thewire.html.twig',
+	[
+		'data' => $data,
+		
+	]
+);
+//echo elgg_view('river/elements/layout', $vars);
