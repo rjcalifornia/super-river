@@ -19,13 +19,19 @@ $subject = $item->getSubjectEntity();
 $data = [
 	'entity' => $entity,
 	'username' => $subject->username,
+	'site_url' => elgg_get_site_url(),
+	'published' => date(("F j, Y"), $entity->time_created),
+	'entity_url' => $entity->getURL(),
+	'collection_url' => elgg_generate_url('collection:object:thewire:owner', [
+		'username' => $subject->name,
+	]),
 ];
 //dd($subject);
 $subject_link = elgg_view_entity_url($subject, ['class' => 'elgg-river-subject']);
 
 $object_link = elgg_view('output/url', [
 	'href' => elgg_generate_url('collection:object:thewire:owner', [
-		'username' => $subject->username,
+		'username' => $subject->name,
 	]),
 	'text' => elgg_echo('thewire:wire'),
 	'class' => 'elgg-river-object',
@@ -41,4 +47,4 @@ echo $twig->render(
 		
 	]
 );
-//echo elgg_view('river/elements/layout', $vars);
+echo elgg_view('river/elements/layout', $vars);
