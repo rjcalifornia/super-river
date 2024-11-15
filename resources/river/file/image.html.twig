@@ -26,6 +26,13 @@
            
         </p>
         </br>
+        {% for category in data.categories %}
+        <a href="{{ data.site_url }}search?q={{ category }}&entity_type=object&entity_subtype=file&search_type=entities" class="hover:no-underline">
+                  <span class="inline-block bg-rose-500  rounded-full px-3 py-1 text-sm font-semibold text-white mr-2 mb-2">
+                  <i class="bi bi-tag-fill"></i> {{ category }}</span>
+                  </a>
+            {% endfor %}
+        
         <div class="mt-auto flex  divide-x divide-gray-200 dark:border-neutral-700 dark:divide-neutral-700">
         <a 
         class="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2
