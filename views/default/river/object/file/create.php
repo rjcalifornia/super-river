@@ -9,11 +9,11 @@ $menu = elgg_view_menu('river', array(
 	'class' => 'elgg-menu-hz',
 ));
 
-
+$twig = super_river_twig();
 
 
 $file = $item->getObjectEntity();
-
+$subject = $item->getSubjectEntity();
 
 $type_mapping = [
 	'application/excel' => 'excel',
@@ -46,11 +46,10 @@ $type = 'unknown';
 if (!empty($mime)) {
 	$type = elgg_extract($mime, $type_mapping, elgg_extract($file->getSimpleType(), $type_mapping, 'unknown'));
 }
-$data = [
-    'title' => $file->title,
-    'description' => $file->description,
-    'page_url' => $file->getUrl(),
-    'url' => $file->getDownloadURL()
-];
- 
-//dd($type);
+if($type == 'image'){
+   echo elgg_view('super-river/image', [
+		'file' => $file,
+		'subject' => $subject,
+        'twig' => $twig,
+	]);
+}
