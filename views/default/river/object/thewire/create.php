@@ -18,13 +18,14 @@ $subject = $item->getSubjectEntity();
 
 $data = [
 	'entity' => $entity,
-	'username' => $subject->username,
+	'username' => $subject->name,
 	'site_url' => elgg_get_site_url(),
 	'published' => date(("F j, Y"), $entity->time_created),
 	'entity_url' => $entity->getURL(),
 	'collection_url' => elgg_generate_url('collection:object:thewire:owner', [
 		'username' => $subject->name,
 	]),
+	'avatar' => elgg_view_entity_icon($item->getSubjectEntity(), 'small'),
 ];
 //dd($subject);
 $subject_link = elgg_view_entity_url($subject, ['class' => 'elgg-river-subject']);
@@ -48,3 +49,4 @@ echo $twig->render(
 	]
 );
 echo elgg_view('river/elements/layout', $vars);
+

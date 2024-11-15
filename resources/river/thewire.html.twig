@@ -4,7 +4,9 @@
   <blockquote class="text-center lg:mx-auto lg:w-3/5" style="background-color: white !important; border: none !important;">
    
    <div class="mx-auto w-40 h-auto sm:w-48 text-gray-800 dark:text-neutral-200 text-2xl font-semibold" style="color: #ff405c;">
-   <i class="bi bi-pen-fill"></i> The Wire
+    <a href="{{data.collection_url}}" style="text-decoration: none;"> 
+    <i class="bi bi-pen-fill"></i> The Wire
+    </a>
    </div>
 
     <div class="mt-6 lg:mt-10">
@@ -21,7 +23,7 @@
     </div>
 
     <footer class="mt-6">
-      <div class="font-semibold text-gray-800 dark:text-neutral-200">{{data.username}}</div>
+      <div class="font-semibold text-gray-800 dark:text-neutral-200 p-2"> {{data.avatar | raw}} {{data.username}}</div>
       <div class="text-sm text-gray-500 dark:text-neutral-500">Posted on | {{data.published}} </div>
     </footer>
   </blockquote>
