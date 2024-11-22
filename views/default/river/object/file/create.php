@@ -40,7 +40,11 @@ switch ($type) {
         ]);
         break;
     case 'pdf':
-        echo 'test';
+        echo elgg_view('super-river/pdf', [
+            'file' => $file,
+            'subject' => $subject,
+            'twig' => $twig,
+        ]);
         break;
     default:
         echo elgg_view('river/elements/layout', $vars);
