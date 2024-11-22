@@ -3,17 +3,29 @@
 $item = $vars['item'];
 /* @var ElggRiverItem $item */
 
-$menu = elgg_view_menu('river', array(
-	'item' => $item,
-	'sort_by' => 'priority',
-	'class' => 'elgg-menu-hz',
-));
+
 
 $twig = super_river_twig();
 
 
 $file = $item->getObjectEntity();
 $subject = $item->getSubjectEntity();
+
+$menu = elgg_view_menu('social', [
+    'entity' => $file,
+    'item' => $item,
+    'class' => 'elgg-menu-hz',
+]);
+
+$menu .= elgg_view_menu('river', array(
+	'item' => $item,
+	'sort_by' => 'priority',
+	'class' => ' ml-2',
+    'prepare_dropdown' => true,
+));
+
+
+
 
 $type_mapping = [
 	'audio' => 'music',
@@ -37,6 +49,7 @@ switch ($type) {
             'file' => $file,
             'subject' => $subject,
             'twig' => $twig,
+            'menu' => $menu,
         ]);
         break;
     case 'pdf':
@@ -44,6 +57,7 @@ switch ($type) {
             'file' => $file,
             'subject' => $subject,
             'twig' => $twig,
+            'menu' => $menu,
         ]);
         break;
     default:

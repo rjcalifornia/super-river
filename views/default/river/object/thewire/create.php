@@ -16,6 +16,18 @@ $vars['message'] = thewire_filter((string) $object->description);
 $entity = get_entity($object->guid);
 $subject = $item->getSubjectEntity();
 
+$menu = elgg_view_menu('social', [
+    'entity' => $object,
+    'item' => $item,
+    'class' => 'elgg-menu-hz',
+]);
+
+$menu .= elgg_view_menu('river', array(
+	'item' => $item,
+	'sort_by' => 'priority',
+	'class' => ' ml-2',
+    'prepare_dropdown' => true,
+));
 $data = [
 	'entity' => $entity,
 	'username' => $subject->name,
@@ -29,6 +41,7 @@ $data = [
 	'avatar' => elgg_view_entity_icon($item->getSubjectEntity(), 'small'),
 	'site_name' => elgg_get_site_entity()->name,
 	'icon' =>  elgg_get_simplecache_url('graphics/favicon-16.png'),
+	'menu' => $menu
 ];
 //dd($subject);
 $subject_link = elgg_view_entity_url($subject, ['class' => 'elgg-river-subject']);

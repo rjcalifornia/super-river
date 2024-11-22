@@ -2,6 +2,7 @@
 $file = $vars['file'];
 $subject = $vars['subject'];
 $twig = $vars['twig'];
+$menu = $vars['menu'];
 
 $data = [
     'entity' => $file, 
@@ -14,6 +15,7 @@ $data = [
     'site_name' => elgg_get_site_entity()->name,
 	'icon' =>  elgg_get_simplecache_url('graphics/favicon-16.png'),
     'categories' => $file->tags,
+    'menu' => $menu,
 ];
  
 echo $twig->render(

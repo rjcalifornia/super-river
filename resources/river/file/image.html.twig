@@ -4,6 +4,7 @@
 
  <div class="lg:w-[65%]   mx-auto">
   <!-- Grid -->
+  
   <div class=" gap-6">
     <!-- Card -->
      <span class="group relative block rounded-xl overflow-hidden focus:outline-none" href="#">
@@ -32,6 +33,15 @@
                   <i class="bi bi-tags-fill"></i> {{ category }}</span>
                   </a>
             {% endfor %}
+
+            <div class=" flex flex-col">
+  <span class="m-1 ms-0 relative py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg text-gray-800  focus:outline-none focus:bg-gray-50 disabled:opacity-50 dark:bg-neutral-900 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-800 dark:focus:bg-neutral-800">
+    
+  <span class="flex absolute  end-0 mt-2 mb-4 mr-2">
+{{data.menu | raw}}
+  </span>
+</span>
+</div>
         
         <div class="mt-auto flex  divide-x divide-gray-200 dark:border-neutral-700 dark:divide-neutral-700">
         <a 
