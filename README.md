@@ -1,5 +1,11 @@
 # Super River for Elgg
 
+<p align="center">
+  
+<img src="https://raw.githubusercontent.com/rjcalifornia/debates/refs/heads/master/graphics/preview.png" width="562">
+
+<br>
+</p>
 
 ### Requirements
 * PHP 8.2.24
@@ -28,3 +34,4 @@
 - [BootStrap Icons](https://icons.getbootstrap.com/) - Free, high quality, open source icon library with over 2,000 icons.
 - [Tailwind CSS](https://tailwindcss.com/) - A utility-first CSS framework packed with classes to build any design, directly in your markup.
 - [Preline](https://preline.co/index.html) - Preline UI is an open-source Tailwind CSS components library for any needs.
+- [ViewerJS](https://viewerjs.org/) - Preview PDF files easily.
