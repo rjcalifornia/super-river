@@ -20,6 +20,7 @@ $type_mapping = [
 	'image' => 'image',
 	'document' => 'text',
 	'video' => 'video',
+    'application/pdf' => 'pdf',
 ];
 
 $mime = $file->getMimeType();
@@ -38,7 +39,9 @@ switch ($type) {
             'twig' => $twig,
         ]);
         break;
-    
+    case 'pdf':
+        echo 'test';
+        break;
     default:
         echo elgg_view('river/elements/layout', $vars);
         break;
