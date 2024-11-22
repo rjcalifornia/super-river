@@ -1,6 +1,10 @@
 {
     "name": "rjcalifornia/super-river",
-    "type": "project",
+    "type": "elgg-plugin",
+	"description": "Better activity page plugin with PDF previews!",
+	"license": "GPL-2.0-only",
+	"keywords": ["content", "river"],
+	"homepage": "https://elgg.org",
     "require": {
         "twig/twig": "^3.14"
     }
