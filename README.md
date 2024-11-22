@@ -2,7 +2,7 @@
 
 <p align="center">
   
-<img src="https://raw.githubusercontent.com/rjcalifornia/debates/refs/heads/master/graphics/preview.png" width="562">
+<img src="https://raw.githubusercontent.com/rjcalifornia/super-river/refs/heads/master/assets/preview.png" width="562">
 
 <br>
 </p>
